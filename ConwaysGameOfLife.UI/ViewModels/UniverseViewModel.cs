@@ -159,7 +159,7 @@ namespace ConwaysGameOfLife.UI
             {
                 //int _simulationSpeed = (int)e.Argument;
              
-                while (!worker.CancellationPending||!EvolutionEnded)
+                while (!worker.CancellationPending&&!EvolutionEnded)
                 {
                     
                     EvolveGeneration();
