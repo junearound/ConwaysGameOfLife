@@ -9,6 +9,6 @@ namespace ConwaysGameOfLife.Logic
     public interface INeighborhoodRule
     {
         ICell[] GetNeighborhood(int row,int column, IGeneration generation);
-       // ICell[] GetBorderNeighborhood(int row, int column, IGeneration generation);
+       
     }
 }
