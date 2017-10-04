@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ConwaysGameOfLife.UI.Views.InfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ConwaysGameOfLife.UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="500">
+    <Grid>
+        <TextBlock>
+            <TextBlock.Text>
+                <MultiBinding StringFormat="Размер поля: {0}x{1} | Поколение: {2} | Эволюция завершена?: {3}">
+                    <Binding Path="Rows" />
+                    <Binding Path="Columns" />
+                    <Binding Path="GenerationNumber" />
+                    <Binding Path="EvolutionEnded" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+    </Grid>
+</UserControl>

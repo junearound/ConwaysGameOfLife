@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ConwaysGameOfLife.UI.Views.GameGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:parent="clr-namespace:ConwaysGameOfLife.UI"
+             xmlns:local="clr-namespace:ConwaysGameOfLife.UI.Views"
+             xmlns:converters="clr-namespace:ConwaysGameOfLife.UI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:StateToBrushConverter x:Key="StateToBrushConverter" />
+        <converters:GenerationToRowsConverter x:Key="GenerationToRowsConverter" />
+    </UserControl.Resources>
+        <Grid>
+        <ItemsControl ItemsSource="{Binding CurrentGeneration, Converter={StaticResource GenerationToRowsConverter}}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle Width="15" Height="15" 
+                            Fill="{Binding State,Converter={StaticResource StateToBrushConverter}}"
+                            Stroke="Black" StrokeThickness="1">
+                                    <Rectangle.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.ToggleCellCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}  }" CommandParameter="{Binding}"/>
+                                    </Rectangle.InputBindings>
+                                </Rectangle>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
