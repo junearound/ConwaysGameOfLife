@@ -26,14 +26,7 @@ namespace ConwaysGameOfLife.UI
         public MainWindow()
         {
             InitializeComponent();
-          
-            
-            //3 background worker
-            //4 border
-            //5 here->
-            //6 tests
-            //7 slow cell update
-            _universeViewModel = new UniverseViewModel(30,30,200);//TODO rows, columns
+            _universeViewModel = new UniverseViewModel(30,30,200);//TODO properties
             DataContext = _universeViewModel;
         }
 

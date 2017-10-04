@@ -8,9 +8,10 @@ namespace ConwaysGameOfLife.Logic
 {
     public enum UniverseShape
     {
-        //Endless,//0
-        Bounded,//1
-        Torus//3
+       
+        Bounded,
+        Torus
+       
     }
 
 

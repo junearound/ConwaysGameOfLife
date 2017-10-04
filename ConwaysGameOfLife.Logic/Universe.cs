@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConwaysGameOfLife.Logic
 {
 
-    public class Universe: IUniverse//IUniverse<ICell>
+    public class Universe: IUniverse
     {
         
         private Dictionary<int, IGeneration> _generations=new Dictionary<int, IGeneration>();
@@ -23,38 +23,13 @@ namespace ConwaysGameOfLife.Logic
             this.CurrentGenerationNumber = 0;
             this._generations.Add(0, initGeneration);
         }
-
-        //GameActionResult
-        //new Generation
-        //is stopped
-        //public GameActionResult EvolveGeneration()
-        //{
-        //    //if !strategy throw
-        //    IGeneration generation = this.EvolutionStrategy.CreateNewGeneration(this.CurrentGeneration);
-
-           
-        //    this.CurrentGenerationNumber = this.CurrentGenerationNumber++;
-        //    //if(_generations) 
-        //    this.CurrentGeneration = generation;
-        //    _generations[this.CurrentGenerationNumber] = generation;
-
-        //    IsEvolutionEnded(generation, _generations.Slice);
-
-        //}
-
          
 
         public IEnumerator<IGeneration> GetEnumerator()
         {
-            
             while (!this.IsEvolutionEnded) {
                 yield return MoveNextGeneration();
             }
-            //for (int i = 0; i < this.end; i++)
-            //{
-            //    if (i == 33) yield break; // Выход из итератора, если закончится алфавит
-            //    yield return (char)(ch + i);
-            //}
         }
         public int GenerationsCount
         {
@@ -119,21 +94,6 @@ namespace ConwaysGameOfLife.Logic
             this._generations.Add(0, this.CurrentGeneration);
         }
     
-        //stores previous generations
-        //Generations
-        //CurrentGeneration
-        //EvolutionMover -> move next
-        //while(!mover.Finished&&user stopped?)
-        //new generation get next
-
-
-
-        //bool Stopped (Finished)
-        //finished counts
-        //Finished(currentState, nextState)
-        //currentState=[0000000....]
-
-
 
     }
 }
