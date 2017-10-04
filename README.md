@@ -1,2 +1,2 @@
 # ConwaysGameOfLife
-Conway's game of life
+WPF
