@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife.Logic
 {
-    public struct Cell: ICell 
+    public class Cell: ICell 
     {
         public Cell(int state, int row, int column) {
             _row = row;
